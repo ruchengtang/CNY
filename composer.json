@@ -1,0 +1,23 @@
+{
+    "name": "ruchengtang/cny",
+    "description": "CNY helps you convert RMB from digital amount to uppercase. 人民币小写转换成大写",
+    "type": "library",
+    "require": {
+        "php": ">=5.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ruchengtang",
+            "email": "ruchengtang@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ruchengtang\\CNY\\": "./src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    }
+}
