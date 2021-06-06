@@ -24,6 +24,8 @@ class CNYTest extends TestCase
         } catch (InvalidArgumentException $e) {
             $this->assertSame(ErrorCode::INVALID_ARGUMENT_EMPTY_CNY, $e->getCode());
             $this->assertSame('Cny must not be empty!', $e->getMessage());
+            $this->assertSame((string)$value, $e->originCny());
+            $this->assertSame(false, is_null($e->cny()));
         }
     }
 
@@ -41,6 +43,8 @@ class CNYTest extends TestCase
         } catch (InvalidArgumentException $e) {
             $this->assertSame(ErrorCode::INVALID_ARGUMENT_INVALID_CHARACTERS_CNY, $e->getCode());
             $this->assertSame(sprintf('Cny %s contains invalid characters!', $value), $e->getMessage());
+            $this->assertSame((string)$value, $e->originCny());
+            $this->assertSame(false, is_null($e->cny()));
         }
     }
 
@@ -58,6 +62,8 @@ class CNYTest extends TestCase
         } catch (InvalidArgumentException $e) {
             $this->assertSame(ErrorCode::INVALID_ARGUMENT_INVALID_FORMAT_CNY, $e->getCode());
             $this->assertSame(sprintf('Cny %s invalid format!', $value), $e->getMessage());
+            $this->assertSame((string)$value, $e->originCny());
+            $this->assertSame(false, is_null($e->cny()));
         }
     }
 
@@ -74,6 +80,8 @@ class CNYTest extends TestCase
         } catch (RangeException $e) {
             $this->assertSame(ErrorCode::RANGE_TOO_LARGE_CNY, $e->getCode());
             $this->assertSame(sprintf('Cny %s is too large!', $value), $e->getMessage());
+            $this->assertSame((string)$value, $e->originCny());
+            $this->assertSame(false, is_null($e->cny()));
         }
     }
 
